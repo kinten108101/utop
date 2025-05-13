@@ -1,6 +1,12 @@
+# UTop
+
 The current OCaml LSP server implementation, `ocamllsp`, does not support the OCaml scripting environment. For example, writing any toplevel directives will have `ocamllsp` shout syntax error, and the rest of the file is skipped.
 
-This is a system of packages, editor plugins, interpreters,... that enables LSP support for OCaml scripting. Most notably, it introduces some fundamental changes to your code:
+This is a version of the UTop interpreter that has LSP support.
+
+---
+
+This is a system of packages, editor plugins, interpreters,... It introduces some fundamental changes to your code:
 
 - Well-typed directives: instead of writing `#use`, we write `!use`. Here, the exclamation mark is an overloaded operator made possible by OCaml's metaprogramming system; the `use` part is shorthand for `Topdirs.use` which is an opened function from an OPAM package this system provides provide.
 - External module signature... auto-included in text: code as data.
