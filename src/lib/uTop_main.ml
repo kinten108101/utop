@@ -1506,10 +1506,12 @@ let main_aux ~initial_env =
       (* Common initialization. *)
       common_init ~initial_env;
       (* Display a welcome message, if enabled. *)
-      if UTop.get_show_welcome () then Lwt_main.run (welcome term);
-      (* Print help message. *)
-      print_string "\nType #utop_help for help about using utop.\n\n";
-      flush stdout;
+      if UTop.get_show_welcome () then begin
+        Lwt_main.run (welcome term);
+        (* Print help message. *)
+        print_string "\nType #utop_help for help about using utop.\n\n";
+        flush stdout;
+      end;
       (* Main loop. *)
       try
         loop term
